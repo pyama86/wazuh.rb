@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    wazuh-rb (0.1.0)
+    wazuh-rb (0.2.0)
       faraday
       faraday_middleware
       thor
