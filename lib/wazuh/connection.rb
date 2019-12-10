@@ -1,5 +1,6 @@
 require 'faraday'
 require 'faraday_middleware'
+require 'openssl'
 
 module Wazuh
   module Connection
@@ -35,8 +36,8 @@ module Wazuh
       options = { url: config.api_endpoint, headers: config.http_request_headers, request: config.request, proxy: config.proxy }
       options[:ssl] = {
         ca_file: config.ca_file,
-        client_key: OpenSSL::PKey::RSA.new(File.read(config.client_key)),
-        client_cert: OpenSSL::X509::Certificate.new(File.read(config.client_cert)),
+        client_key: ::OpenSSL::PKey::RSA.new(File.read(config.client_key)),
+        client_cert: ::OpenSSL::X509::Certificate.new(File.read(config.client_cert))
       } if config.client_cert && config.client_key && config.ca_file
 
       @connection ||= Faraday.new(options) do |faraday|
