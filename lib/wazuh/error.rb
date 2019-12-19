@@ -12,7 +12,7 @@ module Wazuh
               when 500..599 then ServerError
               end
 
-      raise response.body["message"] if response.body["error"]
+      raise response.body["message"] if response.body["error"] != 0
       klass.new(response) if klass
     end
 

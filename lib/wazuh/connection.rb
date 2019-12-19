@@ -22,9 +22,10 @@ module Wazuh
       end
     end
 
-    def delete(url)
+    def delete(url, params = {})
       connection.delete(url) do |req|
         req.headers['Content-Type'] = 'application/json'
+        req.body = params.to_json
       end
     end
 

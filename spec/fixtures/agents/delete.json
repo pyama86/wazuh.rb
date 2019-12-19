@@ -1,0 +1,12 @@
+{
+   "error": 0,
+   "data": {
+      "msg": "All selected agents were removed",
+      "older_than": "10s",
+      "affected_agents": [
+         "003",
+         "005"
+      ],
+      "total_affected_agents": 2
+   }
+}
